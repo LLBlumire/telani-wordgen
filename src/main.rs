@@ -147,5 +147,5 @@ fn get_words(count: usize) -> String {
 }
 
 fn main() {
-    rocket::ignite().mount("/", routes![get_words]).launch();
+    rocket::ignite().mount("/", routes![get_words, get_one_word]).launch();
 }
