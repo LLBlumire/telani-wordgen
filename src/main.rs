@@ -9,10 +9,6 @@ use rocket::get;
 use rocket::routes;
 use lazy_static::lazy_static;
 
-macro_rules! count_tts {
-    ($($tts:tt),*) => {0usize $(+ replace_expr!($tts 1usize))*};
-}
-
 static CON: [(char, f64); 13] = [
     ('l', 8.0),
     ('t', 7.0),
