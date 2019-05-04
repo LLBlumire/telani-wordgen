@@ -128,8 +128,16 @@ fn gen_word<R: Rng>(r: &mut R) -> String {
     unreachable!()
 }
 
+#[get("/")]
+fn get_one_word() -> String {
+    get_words(1)
+}
+
 #[get("/<count>")]
 fn get_words(count: usize) -> String {
+    if count > 20 {
+        return "Too Many Number".to_string();
+    }
     let mut str_buf = String::with_capacity(count * 10);
     for _ in 0..count {
         str_buf.push_str(&gen_word(&mut thread_rng()));
